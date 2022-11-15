@@ -41,5 +41,5 @@ class InFile:
 
                 if item[0] == 'i':
                     self.inType.append("int")
-                else:
+                elif item[0] == 's':
                     self.inType.append("string")
