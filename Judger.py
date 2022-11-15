@@ -5,22 +5,22 @@ import random
 import csv
 
 class Judger:
-    def __int__(self, infile):
+    def __init__(self, infile):
         self.infile = infile
         self.equal = []
         self.unequal = []
 
     def judge(self):
         files = self.infile.src_files
+        path = self.infile.folderPath
         for i in range(len(files)):
             for j in range(i+1, len(files)):
-                if self.compile(self.infile.path + '/' + files[i], 'a') and \
-                        self.compile(self.infile.path + '/' + files[j], 'b'):
+                if self.compile(path + '/' + files[i], 'a') and \
+                        self.compile(path + '/' + files[j], 'b'):
                     if self.is_equal():
-                        self.equal.append([self.infile.path + '/' + files[i], self.infile.path + '/' + files[j]])
-                        return
-                self.unequal.append([self.infile.path + '/' + [i], self.infile.path + '/' + files[j]])
-                return
+                        self.equal.append([path + '/' + files[i], path + '/' + files[j]])
+                        continue
+                self.unequal.append([path + '/' + files[i], path + '/' + files[j]])
 
     def compile(self, path, name):
         ret = system("g++ " + path + " -o " + name + " 2>&1")
@@ -46,12 +46,12 @@ class Judger:
             ty = self.infile.inType[i]
             ran = self.infile.inRange[i]
             if ty == "int":
-                gen.append(random.randrange(ran[i].start, ran[i].stop))
+                gen.append(random.randrange(ran.start, ran.stop))
             elif ty == "char":
                 gen.append(random.choice(string.ascii_letters))
             else:
                 to_add = ""
-                length = random.randrange(ran[i].start, ran[i].stop)
+                length = random.randrange(ran.start, ran.stop)
                 for j in range(length):
                     to_add += random.choice(string.ascii_letters)
                 gen.append(to_add)

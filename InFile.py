@@ -13,7 +13,7 @@ class InFile:
     def read_folder(self):
         files = os.listdir(self.folderPath)
         for file in files:
-            if file != self.in_format_name:
+            if file != self.in_format_name and file != ".DS_Store":
                 self.src_files.append(file)
 
     def parse_stdin(self):
