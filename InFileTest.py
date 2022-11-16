@@ -6,7 +6,7 @@ from InFile import InFile
 class InFileTest(unittest.TestCase):
 
     def test_read_folder(self):
-        path = "../input/4A"
+        path = "input/4A"
         infile = InFile(path)
         infile.read_folder()
         files = ["101036360.cpp", "127473352.cpp", "173077807.cpp", "84822638.cpp",
@@ -15,7 +15,7 @@ class InFileTest(unittest.TestCase):
         self.assertEqual(files, set(infile.src_files))
 
     def test_parse_stdin1(self):
-        path = "../input/4A"
+        path = "input/4A"
         infile = InFile(path)
         infile.parse_stdin()
         exp_type = ["int"]
@@ -24,7 +24,7 @@ class InFileTest(unittest.TestCase):
         self.assertEqual(exp_range, infile.inRange)
 
     def test_parse_stdin2(self):
-        path = "../input/50A"
+        path = "input/50A"
         infile = InFile(path)
         infile.parse_stdin()
         exp_type = ["int", "int"]
