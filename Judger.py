@@ -69,13 +69,10 @@ class Judger:
         return res1 == res2
 
     def write_out(self):
-        fieldnames = ['file1', 'file2']
-        with open("equal.csv", "w") as f1:
+        with open("output/equal.csv", "a+") as f1:
             writer = csv.writer(f1)
-            writer.writerow(fieldnames)
             writer.writerows(self.equal)
             
-        with open("inequal.csv", "w") as f2:
+        with open("output/inequal.csv", "a+") as f2:
             writer = csv.writer(f2)
-            writer.writerow(fieldnames)
             writer.writerows(self.unequal)
