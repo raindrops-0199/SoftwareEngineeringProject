@@ -1,4 +1,3 @@
-import csv
 import string
 from os import system
 import random
