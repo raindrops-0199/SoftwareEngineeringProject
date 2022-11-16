@@ -1,7 +1,8 @@
 from InFile import InFile
 from Judger import Judger
 
-if __name__ == '__main__':
+
+def main():
     path = "../input/50A"
     infile = InFile(path)
     infile.read_folder()
@@ -9,3 +10,7 @@ if __name__ == '__main__':
     judge = Judger(infile)
     judge.judge()
     judge.write_out()
+
+
+if __name__ == '__main__':
+    main()
